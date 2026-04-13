@@ -1,0 +1,13 @@
+# Python / Streamlit
+__pycache__/
+*.pyc
+.env
+.streamlit/
+
+# Database
+*.db
+kakeibo.db
+
+# Any other sensitive files
+*.csv
+Transactions_*.csv
