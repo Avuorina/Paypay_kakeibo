@@ -4,7 +4,19 @@ from dotenv import load_dotenv
 
 # Load environment variables
 load_dotenv()
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+
+# APIキーはStreamlit secretsを優先し、なければ.envから読む
+def _get_api_key():
+    try:
+        import streamlit as st
+        key = st.secrets.get("GEMINI_API_KEY", "")
+        if key:
+            return key
+    except Exception:
+        pass
+    return os.getenv("GEMINI_API_KEY", "")
+
+GEMINI_API_KEY = _get_api_key()
 
 # Default categories
 DEFAULT_CATEGORIES = [
