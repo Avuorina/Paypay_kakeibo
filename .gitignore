@@ -11,3 +11,5 @@ kakeibo.db
 # Any other sensitive files
 *.csv
 Transactions_*.csv
+
+.streamlit/secrets.toml
